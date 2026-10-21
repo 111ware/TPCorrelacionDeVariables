@@ -1,0 +1,147 @@
+:root {
+  --fondo: #f2f5f7;
+  --tarjeta: #ffffff;
+  --texto: #1c2a35;
+  --texto-suave: #5b6b77;
+  --borde: #d5dde3;
+  --acento: #1f6f8b;
+  --positiva: #23775a;
+  --negativa: #b0432f;
+  --neutra: #5b6b77;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+.encabezado,
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.encabezado {
+  padding-top: 40px;
+  padding-bottom: 8px;
+}
+
+.encabezado h1 {
+  margin: 0 0 6px;
+  font-size: 1.9rem;
+}
+
+.encabezado p {
+  max-width: 60ch;
+  margin: 0;
+  color: var(--texto-suave);
+}
+
+main {
+  padding-bottom: 48px;
+}
+
+/* mensaje de carga o de error */
+#estado {
+  margin: 16px 0;
+  color: var(--texto-suave);
+}
+
+#estado.error {
+  color: var(--negativa);
+}
+
+/* bloque con el par de mayor correlación */
+#resumen {
+  margin: 16px 0 24px;
+  padding: 16px 20px;
+  background: var(--tarjeta);
+  border-left: 4px solid var(--acento);
+  border-radius: 6px;
+}
+
+#resumen:empty {
+  display: none;
+}
+
+#resumen h2 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+#resumen p {
+  max-width: 70ch;
+  margin: 0 0 8px;
+}
+
+#resumen p:last-child {
+  margin-bottom: 0;
+}
+
+/* grilla de cards */
+#contenedor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 18px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+}
+
+.card.mayor {
+  padding: 17px;
+  border: 2px solid var(--acento);
+}
+
+.card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.valor-r {
+  font-size: 1.25rem;
+  font-weight: 700;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.valor-r.positiva { color: var(--positiva); }
+.valor-r.negativa { color: var(--negativa); }
+.valor-r.neutra { color: var(--neutra); }
+
+.card canvas {
+  width: 100%;
+}
+
+.card p {
+  margin: 12px 0 0;
+  font-size: 0.92rem;
+  color: var(--texto-suave);
+}
+
+.card p.etiqueta {
+  margin: 0 0 10px;
+  font-weight: 600;
+  color: var(--acento);
+}
